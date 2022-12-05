@@ -1,8 +1,8 @@
 {
   "name": "event-center-js",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "listen an event and fire an event",
-  "main": "lib/index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
     "build": "rm -rf lib && gulp"
