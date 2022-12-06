@@ -25,9 +25,9 @@ export default function EventCenter() {
     if (this.eventHub[eventName] === undefined) {
       this.eventHub[eventName] = [_listener];
     } else {
-    //   console.warn(
-    //     `duplicate event name '${eventName}'. warning from event-center-js.`
-    //   );
+      //   console.warn(
+      //     `duplicate event name '${eventName}'. warning from event-center-js.`
+      //   );
       this.eventHub[eventName].push(_listener);
     }
     return () => {
@@ -47,7 +47,8 @@ export default function EventCenter() {
     if (this.eventHub[eventName] !== undefined) {
       const len = this.eventHub[eventName].length;
       for (let i = 0; i < len; i++) {
-        this.eventHub[eventName][i](data);
+        if (this.eventHub[eventName][i] !== undefined)
+          this.eventHub[eventName][i](data);
       }
       this.fixListener(eventName);
     }

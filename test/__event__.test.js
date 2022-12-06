@@ -30,12 +30,14 @@ test('it will only be called once', (done) => {
 });
 
 test('off event', (done) => {
-  expect.assertions(0);
+  expect.assertions(1);
   eventCenter.on('eventB', (data) => {
     expect(data).toBe(1);
   });
-
   eventCenter.off('eventB');
+  eventCenter.on('eventB', (data) => {
+    expect(data).toBe(1);
+  });
   eventCenter.fire('eventB', 1);
   done();
 });
